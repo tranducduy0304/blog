@@ -1,7 +1,6 @@
 const express = require('express');
 const authController = require('../controllers/auth.controller');
-const {validate} = require('express-validation');
-const { adminAuth, userAuth, verifyToken } = require("../auth/jwt.auth");
+const { verifyToken } = require("../middleware/middleware");
 
 
 

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model")
 
-const middlewareJWT = {
+const middleware = {
   // VERIFY ACCEPT TOKEN
   verifyToken: (req, res, next) => {
     const token = req.headers.token;
@@ -31,4 +31,4 @@ const middlewareJWT = {
   }
 }
 
-module.exports = middlewareJWT;
+module.exports = middleware;

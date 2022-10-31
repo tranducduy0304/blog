@@ -1,15 +1,13 @@
 const express = require('express');
 const userController = require('../controllers/user.controller');
-const {validate} = require('express-validation');
-const { adminAuth, userAuth } = require("../auth/jwt.auth");
-const middlewareJWT = require('../auth/jwt.auth');
+const middleware = require('../middleware/middleware');
 
 const router = express.Router();
 
 // GET ALL USERS
-router.get("/", middlewareJWT.verifyToken, middlewareJWT.verifyTokenAndAdminAuth, userController.allUser);
+router.get("/", middleware.verifyToken, middleware.verifyTokenAndAdminAuth, userController.allUser);
 
 //DELETE USER
-router.delete("/delete/:id", middlewareJWT.verifyToken, middlewareJWT.verifyTokenAndAdminAuth, userController.deleteUser);
+router.delete("/delete/:id", middleware.verifyToken, middleware.verifyTokenAndAdminAuth, userController.deleteUser);
 
 module.exports = router;

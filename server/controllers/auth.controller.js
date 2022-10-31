@@ -1,7 +1,7 @@
 const  User = require("../models/User.model");
-const userServices = require("../services/user.services")
+const authServices = require("../services/auth.services");
 const {Request, Response} = require('express');
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
 require('dotenv').config();
 
@@ -11,7 +11,7 @@ const authController = {
     // REGISTER
     register: async (req, res) => {
         try { 
-            const user = await userServices.register(req.body);
+            const user = await authServices.register(req.body);
             return res.json({
                 method: 'POST',
                 status: 'success',
@@ -30,9 +30,8 @@ const authController = {
     // LOGIN
     login: async (req, res) => {
         try {
-            const user = await userServices.login(req.body.username, req.body.password);
+            const user = await authServices.login(req.body.username, req.body.password);
             // STORE REFRESH TOKEN IN COOKIE
-            console.log(user["refresh-token"])
             res.cookie("refreshToken", user["refresh-token"], {
                 httpOnly: true,
                 secure: false,
