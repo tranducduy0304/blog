@@ -21,7 +21,7 @@ const middleware = {
 
   // VERIFY TOKEN AND ADMIN 
   verifyTokenAndAdminAuth: (req, res, next) => {
-    middlewareJWT.verifyToken(req, res, () => {
+    middleware.verifyToken(req, res, () => {
       if (req.user.id == req.params.id || req.user.admin) {
           next();
       } else {
