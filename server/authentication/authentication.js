@@ -22,7 +22,7 @@ const middleware = {
   // VERIFY TOKEN AND ADMIN 
   verifyTokenAndAdminAuth: (req, res, next) => {
     middleware.verifyToken(req, res, () => {
-      if (req.user.id == req.params.id || req.user.admin) {
+      if (req.user.id == req.params.id || req.user.admin ) {
           next();
       } else {
         res.status(403).json("You're not allowed to delete other user")

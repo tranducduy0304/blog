@@ -1,4 +1,5 @@
 const User = require("../models/User.model");
+// const {ObjectId} = require('mongodb');
 
 require('dotenv').config();
     
@@ -9,13 +10,13 @@ const userServices = {
     },
     
     // DELETE 
-    deleteUser: async(id) => {
-        return await User.findOneAndDelete({id: id}).select('id username admin')
+    deleteUser: (id) => { 
+        return User.deleteOne({_id: id})
     },
 
     // UPDATE
-    updateUser: async(id, data) => {
-        return await User.findOneAndUpdate(id, data)
+    updateUser: (id) => {
+        return  User.findOneAndUpdate({_id: id}).select('id username fullname email phone_number adress')
     }
 }
 

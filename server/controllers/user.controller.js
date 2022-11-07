@@ -22,12 +22,13 @@ const useController = {
     // DELETE
     deleteUser: async (req, res) => {
         try {
+
             const user = await userServices.deleteUser(req.params.id);
             
             return res.json({
-                method: 'POST',
+                method: 'DELETE',
                 status: 'success',
-                data: user
+                data: user.deletedCount === 0 ? "Deleted unsuccessfully" : "Deleted successfully"
             });
         } catch (error) {
             res.status(400).json("ERROR: " + error);

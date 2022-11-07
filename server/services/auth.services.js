@@ -24,7 +24,7 @@ const authServices = {
                 admin: user.admin
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: "20s" }
+            // { expiresIn: "24h" }
         );
     },
     
