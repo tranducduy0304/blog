@@ -12,6 +12,11 @@ const userServices = {
     deleteUser: async(id) => {
         return await User.findOneAndDelete({id: id}).select('id username admin')
     },
+
+    // UPDATE
+    updateUser: async(id, data) => {
+        return await User.findOneAndUpdate(id, data)
+    }
 }
 
 module.exports = userServices;

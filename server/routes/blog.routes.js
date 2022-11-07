@@ -1,7 +1,6 @@
 const express = require('express');
 const blogController = require('../controllers/blog.controller');
 const {validate} = require('express-validation');
-// const { adminAuth, userAuth } = require("../auth/jwt.auth");
 
 const router = express.Router();
 

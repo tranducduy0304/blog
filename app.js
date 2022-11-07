@@ -26,13 +26,9 @@ app.use(express.json());
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
-//app.use('/', routes);
-// app.use("/api/authenticate", require("./Auth.authenticate/route"))
 route(app);
 
-// app.listen(port, () => { 
-//     console.log(`Listening on http://localhost:${port}`)
-// });
+
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+});

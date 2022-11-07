@@ -1,7 +1,6 @@
 const  User = require("../models/User.model");
 const authServices = require("../services/auth.services");
 const {Request, Response} = require('express');
-// const jwt = require("jsonwebtoken");
 
 require('dotenv').config();
 
@@ -51,6 +50,8 @@ const authController = {
             res.status(400).json("ERROR: " + error);
         }
     },
+
+    //I have a problems with it, I wwil try to handle it sooon.
     
     //REQUEST REFRESH TOKEN
     // requestRefreshToken: async(req, res) => {

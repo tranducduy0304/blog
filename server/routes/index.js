@@ -11,7 +11,7 @@ function route(app) {
     app.use("/blog", blogRouter);
     app.use(( err, req, res, next) => {
         console.log(err);
-        res.status(500).send("Something broken!")
+       return res.status(500).send("Something broken!")
     });
 }
 

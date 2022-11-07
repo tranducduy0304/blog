@@ -1,17 +1,17 @@
-exports.INVALID_ID = "ID is invalid!";
-exports.INVALID_USERNAME = "Username is invalid!";
-exports.INVALID_PASSWORD = "Name is invalid!";
-exports.INVINVALID_NAMEALID_ID = "ID is invalid!";
-exports.INVALID_EMAIL = 'Email is invalid!';
-exports.INVALID_PHONE = "Failed! Phonenumber is invalid!";
-exports.REGISTER_FAILED = "Registration failed";
-exports.DELELTE_SUCCESS = "User successfully deleted!";
-exports.DELELTE_FAIL = "Delete user not successfully";
-exports.EXIST_USERNAME = "Failed! Username is already in use!";
-exports.EXIST_PHONE = "Failed!epxorts.number have been use!";
-exports.LOGIN_PASSWORD_SUCCESS = "Success";
-exports.LOGIN_PASSWORD_FAIL = "Incorrect password!";
-exports.LOGIN_USERNAME_FAIL = "Your username is not exits";
+const INVALID_ID = "ID is invalid!";
+const INVALID_USERNAME = "Username is invalid!";
+const INVALID_PASSWORD = "Password is invalid!";
+const INVINVALID_NAMEALID_ID = "ID is invalid!";
+const INVALID_EMAIL = 'Email is invalid!';
+const INVALID_PHONE = "Failed! Phonenumber is invalid!";
+const REGISTER_FAILED = "Registration failed";
+const DELELTE_SUCCESS = "User successfully deleted!";
+const DELELTE_FAIL = "Delete user not successfully";
+const EXIST_USERNAME = "Failed! Username is already in use!";
+const EXIST_PHONE = "Failed!epxorts.number have been use!";
+const LOGIN_PASSWORD_SUCCESS = "Success";
+const LOGIN_PASSWORD_FAIL = "Incorrect password!";
+const LOGIN_USERNAME_FAIL = "Your username is not exits";
 
 
-// export { INVALID_ID, INVALID_NAME, INVALID_PASSWORD, INVALID_PHONE, INVALID_USERNAME, EXIST_PHONE, EXIST_USERNAME, LOGIN_PASSWORD_FAIL, LOGIN_USERNAME_FAIL, LOGIN_PASSWORD_SUCCESS}
+module.exports = { INVALID_ID, INVALID_USERNAME, INVALID_PASSWORD, INVALID_PHONE, INVALID_USERNAME, EXIST_PHONE, EXIST_USERNAME, LOGIN_PASSWORD_FAIL, LOGIN_USERNAME_FAIL, LOGIN_PASSWORD_SUCCESS}
