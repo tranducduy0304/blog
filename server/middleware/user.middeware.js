@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const ObjectId = mongoose.Types.ObjectId;
 
-const userMiddlename = {
+const userMiddleware = {
     isValidObjectId: (req, res, next) => {
         if (!ObjectId.isValid(req.params.id)) {
             res.status(400).send({ERR: errMessages.INVALID_ID})
@@ -15,37 +15,38 @@ const userMiddlename = {
     checkDuplicateUsername: (req, res, next) => {
         User.findOne({
             username: req.body.username
-        }).exac((err, user) => {
+        }, function(err, user){
             if (err) {
                 res.status(500).send({ ERROR: err });
                 return;
             }
             if (user) {
-                res.status(400).send({ ERROR: errMessages.EXIST_USERNAME})
+                res.status(400).send({ ERROR: errMessages.EXIST_USERNAME })
                 return;
             }
             next();
         })
     }, 
 
-    checkDuplicatePhone(req, res, next) {
-        //console.log('sdgs')
+    // CHECK DUPLICATE PHONE_NUMBER
+    checkDuplicatePhoneNumber: (req, res, next) =>{
         User.findOne({
-            phone: req.body.phone
-        }).exec((err, phone) => {
+            phone_number: req.body.phone_number
+        }).exec((err, phone_number) => {
             if (err) {
                 res.status(500).send({ ERROR: err });
                 return;
             }
-            if (phone) {
-                res.status(400).send({ ERROR: errMessage.EXIST_PHONE});
+            if (phone_number) {
+                res.status(400).send({ ERROR: errMessages.EXIST_PHONE});
                 return
             }
             next();
         })
     },
 
-    checkDuplicateEmail(req, res, next) {
+    // CHECK DUPLICATE EMAIL 
+    checkDuplicateEmail: (req, res, next) => {
         //console.log('sdgs')
         User.findOne({
             phone: req.body.phone
@@ -54,7 +55,7 @@ const userMiddlename = {
                 res.status(500).send({ ERROR: err });
                 return;
             }
-            if (phone) {
+            if (email) {
                 res.status(400).send({ ERROR: errMessage.EXIST_EMAIL});
                 return
             }
@@ -62,3 +63,5 @@ const userMiddlename = {
         })
         }
 }
+
+module.exports = userMiddleware;
