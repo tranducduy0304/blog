@@ -47,16 +47,15 @@ const userMiddleware = {
 
     // CHECK DUPLICATE EMAIL 
     checkDuplicateEmail: (req, res, next) => {
-        //console.log('sdgs')
         User.findOne({
-            phone: req.body.phone
+            email: req.body.email
         }).exec((err, email) => {
             if (err) {
                 res.status(500).send({ ERROR: err });
                 return;
             }
             if (email) {
-                res.status(400).send({ ERROR: errMessage.EXIST_EMAIL});
+                res.status(400).send({ ERROR: errMessages.EXIST_EMAIL});
                 return
             }
             next();

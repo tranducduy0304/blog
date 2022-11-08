@@ -9,7 +9,7 @@ const validate = require('express-validation');
 const router = express.Router();
 
 // REGISTER
-router.post("/register", [userMiddleware.checkDuplicateUsername, userMiddleware.checkDuplicatePhoneNumber], authController.register);
+router.post("/register", [userMiddleware.checkDuplicateUsername, userMiddleware.checkDuplicatePhoneNumber, userMiddleware.checkDuplicateEmail], authController.register);
 
 // LOGIN
 router.post("/login", authController.login);
