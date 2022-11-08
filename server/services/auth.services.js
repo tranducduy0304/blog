@@ -1,7 +1,6 @@
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
 const errMessages = require("../const/err-messages.const");
-const userConst = require("../const/user.const");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
@@ -10,7 +9,7 @@ const authServices = {
     // HASH PASSWORD
     hashPassword: async(password) => {
         // Generate salt to hash password
-        const salt = await bcrypt.genSalt(userConst.SALT_VALUE);
+        const salt = await bcrypt.genSalt(10);
         // Set user password to hashed password
         password = await bcrypt.hash(password, salt)
         return password;
